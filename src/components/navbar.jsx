@@ -1,9 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-const Navbar = ()=>{
-    return(
+const Navbar = () => (
         <nav className="nav">
             <h1>Math Magicians</h1>
             <ul>
@@ -18,7 +16,6 @@ const Navbar = ()=>{
                 </li>
             </ul>
         </nav>
-    )
-}
+);
 
 export default Navbar;
