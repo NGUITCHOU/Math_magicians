@@ -29,7 +29,7 @@ const Calculator = () => {
   return (
         <div className="calculator">
         <div>
-            <h1>Welcome to the calculator page</h1>
+            <h1>Lets do some math!</h1>
         </div>
         <div className="calculator-grid">
 
