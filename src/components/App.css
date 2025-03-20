@@ -1,7 +1,15 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+.home h2{
+  font-size: 25px;
+  width: 80rem;
+  text-align: center;
+}
+
+.home p{
+  font-size: 30px;
+  margin-top: 0px;
+  width: 80rem;
+  text-align: center;
 }
 
 .nav {
@@ -32,25 +40,44 @@ ul li a {
 
 .calculator-grid {
   margin-top: 5rem;
-  margin-left: 50rem;
+  margin-left: 30rem;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgb(211, 171, 171);
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
+  width: 340px;
 }
 
 .calculator-grid .screen {
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(165, 163, 163);
   text-align: end;
 }
 
 input {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  margin: 1px;
+  height: 50px;
   font-size: 3rem;
-  margin: 5px;
+}
+
+input[value='/'],
+input[value='*'],
+input[value='+'],
+input[value='-'],
+input[value='='] {
+  background-color: orangered;
+}
+
+ ul li{
+  flex-direction: column;
+ 
+}
+
+ul li h4 { 
+  color: rgb(165, 3, 157);
+}
+
+ul li h5 { 
+  color: rgb(25, 2, 128);
+  margin-top: -25px;
 }
