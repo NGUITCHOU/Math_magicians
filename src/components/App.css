@@ -1,13 +1,13 @@
 
-.home h2{
+.home h2 {
   font-size: 25px;
   width: 80rem;
   text-align: center;
 }
 
-.home p{
+.home p {
   font-size: 30px;
-  margin-top: 0px;
+  margin-top: 0;
   width: 80rem;
   text-align: center;
 }
@@ -27,6 +27,11 @@ ul {
 }
 
 ul li {
+  list-style: none;
+  font-size: 30px;
+}
+
+nav ul li {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -68,16 +73,11 @@ input[value='='] {
   background-color: orangered;
 }
 
- ul li{
-  flex-direction: column;
- 
-}
-
-ul li h4 { 
+ul li h4 {
   color: rgb(165, 3, 157);
 }
 
-ul li h5 { 
+ul li h5 {
   color: rgb(25, 2, 128);
   margin-top: -25px;
 }
