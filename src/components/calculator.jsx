@@ -22,7 +22,7 @@ const Calculator = () => {
       const result = math.evaluate(displayValue);
       setDisplayValue(String(result));
     } catch (error) {
-      setDisplayValue('error you monkey');
+      setDisplayValue('error');
     }
   };
 
