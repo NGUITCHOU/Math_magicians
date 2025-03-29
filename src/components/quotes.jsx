@@ -45,15 +45,12 @@ const Quote = () => {
       {error && (
         <p style={{ color: 'red' }}>
           Error:
-          {' '}
           {error}
         </p>
       )}
       <ul>
         {quotes.map((quote) => (
-          <li key={quote.id}>
-            {' '}
-            {/* Ensure quote.id is unique */}
+          <li key={quote.id}> 
             <h4>{quote.author}</h4>
             <h5>{quote.quote}</h5>
           </li>
