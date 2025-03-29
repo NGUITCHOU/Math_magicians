@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Quote = () => {
   const [quotes, setQuotes] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchQuotes = async () => {
+  const fetchQuotes = useCallback(async () => {
     try {
       const response = await fetch('https://api.api-ninjas.com/v1/quotes', {
         method: 'GET',
@@ -20,32 +20,45 @@ const Quote = () => {
 
       const data = await response.json();
       setQuotes(data);
+      setError(null); // Clear any previous errors
     } catch (err) {
-      error(err);
       setError(err.message);
     }
-  };
+  }, []); // Ensure no dependencies here to avoid changes on every render
+
   useEffect(() => {
+    // Fetch quotes immediately on mount
+    fetchQuotes();
+
     const quotid = setInterval(() => {
       fetchQuotes();
-    },
-    10000);
+    }, 10000);
+
     return () => {
       clearInterval(quotid);
     };
-  }, []);
+  }, [fetchQuotes]); // <- These dependencies should include fetchQuotes
+
   return (
-        <div>
-        <h1>Welcome to Quote page</h1>
-        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-        <ul>
-            {quotes.map((quote, index) => (
-                <li key={index}>
-                <h4> {quote.author}</h4>
-                    <h5>{quote.quote}</h5>
-                </li>
-            ))}
-        </ul>
+    <div>
+      <h1>Welcome to the Quote Page</h1>
+      {error && (
+        <p style={{ color: 'red' }}>
+          Error:
+          {' '}
+          {error}
+        </p>
+      )}
+      <ul>
+        {quotes.map((quote) => (
+          <li key={quote.id}>
+            {' '}
+            {/* Ensure quote.id is unique */}
+            <h4>{quote.author}</h4>
+            <h5>{quote.quote}</h5>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
